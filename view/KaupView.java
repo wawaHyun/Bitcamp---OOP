@@ -11,13 +11,12 @@ import java.lang.reflect.Member;
 import java.util.Scanner;
 
 public class KaupView {
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
+    public static void kaupMain(Scanner sc) {
 
         UtilService Util = UtilServiceImpl.getInstance();
         KaupService kaupS = KaupServiceImpl.getInstance();
 
+        System.out.println("kaup지수 조회할 이름을 입력하세요.");
         MemberDto mb = new MemberBuilder()
                 .name(sc.next())
                 .height(Util.createRandomInteger(150,50))

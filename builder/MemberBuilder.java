@@ -4,7 +4,7 @@ import model.MemberDto;
 
 public class MemberBuilder {
     private String memberId;
-    private int memberPw;
+    private String memberPw;
     private String name;
     private int socialNum;
     private int phoneNum;
@@ -17,7 +17,7 @@ public class MemberBuilder {
         this.memberId = memberId;
         return this;
     }
-    public MemberBuilder memberPw(int memberPw){
+    public MemberBuilder memberPw(String memberPw){
         this.memberPw = memberPw;
         return this;
     }

@@ -12,14 +12,14 @@ import serviceImpl.UtilServiceImpl;
 import java.util.Scanner;
 
 public class GradeView {
-    public static void main(String[] args) {
+    public static void grMain(Scanner sc) {
 
-        Scanner sc = new Scanner(System.in);
         UtilService util = UtilServiceImpl.getInstance();
         GradeService gradeS = GradeServiceImpl.getInstance();
 
+        System.out.println("학생이름을 입력하세요");
         MemberDto student = new MemberBuilder()
-                .name("jaja")
+                .name(sc.next())
                 .build();
 
         SubjectDto sb = new SubjectBuilder()

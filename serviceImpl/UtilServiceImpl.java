@@ -2,6 +2,8 @@ package serviceImpl;
 
 import service.UtilService;
 
+import java.util.Random;
+
 public class UtilServiceImpl implements UtilService {
 
     private static UtilService instance = new UtilServiceImpl();
@@ -43,10 +45,26 @@ public class UtilServiceImpl implements UtilService {
                 "run BTS",
                 "지역 균형발전에 관하여",
                 "Dyamite",
-                "절차 및 기타 필요한 사항",
+                "절차 및 기타 필요한 사항"
         };
         return titles[createRandomInteger(0,10)];
     }
+
+    @Override
+    public String createRandomMemberId() {
+        String memberId = "";
+
+        for(int i=0;i<5;i++) {
+            memberId +=
+                    //유니코드 a=97, 에서 26까지 더하면서 하면 abcd 불러오고
+                    //char이 정수타입이라서 String.valueOf를 통해 string으로 바꿔줌
+                    String.valueOf(
+                    (char)('a'+createRandomInteger(0,26)));
+        }
+
+        return memberId;
+    }
+
 
     @Override
     public String createRandomContents() {

@@ -1,8 +1,9 @@
 package model;
 
 public class MemberDto {
+    private int username;
     private String memberId;
-    private int memberPw;
+    private String memberPw;
     private String name;
     private int socialNum;
     private int phoneNum;
@@ -12,7 +13,7 @@ public class MemberDto {
     private double weight;
 
 
-    public MemberDto(String memberId, int memberPw, String name, int socialNum, int phoneNum, String address, String job, double height, double weight) {
+    public MemberDto(String memberId, String memberPw, String name, int socialNum, int phoneNum, String address, String job, double height, double weight) {
         this.memberId = memberId;
         this.memberPw = memberPw;
         this.name = name;
@@ -47,11 +48,11 @@ public class MemberDto {
         this.memberId = memberId;
     }
 
-    public int getMemberPw() {
+    public String getMemberPw() {
         return memberPw;
     }
 
-    public void setMemberPw(int memberPw) {
+    public void setMemberPw(String memberPw) {
         this.memberPw = memberPw;
     }
 

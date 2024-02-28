@@ -1,23 +1,24 @@
 package model;
 
 public class BoardDto {
+    private int username;
     private String title ;
     private String content;
     private String writer;
+
+    @Override
+    public String toString() {
+        return "BoardDto{" +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", writer='" + writer + '\'' +
+                '}';
+    }
 
     public BoardDto(String title, String content, String writer) {
         this.title = title;
         this.content = content;
         this.writer = writer;
-    }
-
-    @Override
-    public String toString() {
-        return "BoardDto{\n" +
-                "title :" + title + ",\n" +
-                "content : " + content + ",\n" +
-                "writer : " + writer + "\n" +
-                '}';
     }
 
     public String getTitle() {
@@ -43,4 +44,5 @@ public class BoardDto {
     public void setWriter(String writer) {
         this.writer = writer;
     }
+
 }

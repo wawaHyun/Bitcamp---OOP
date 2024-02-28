@@ -1,6 +1,7 @@
 package model;
 
 public class ProductDto {
+    private int username;
     private int productNum;
     private String productName;
     private String company;
@@ -54,4 +55,5 @@ public class ProductDto {
     public void setProductPrice(int productPrice) {
         this.productPrice = productPrice;
     }
+
 }
