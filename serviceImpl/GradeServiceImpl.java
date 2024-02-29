@@ -9,10 +9,12 @@ import java.text.DecimalFormat;
 public class GradeServiceImpl implements GradeService {
     private static GradeService instance = new GradeServiceImpl();
     private GradeServiceImpl(){}
-
     public static GradeService getInstance(){
         return instance;
     }
+
+
+
 
     @Override
     public int getTotalScore(SubjectDto subDto) {

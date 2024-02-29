@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BoardView {
-    public static void main(String[] args) {
+    public static void boMain() {
         List<BoardDto> articles = new ArrayList<>();
         UtilService util = UtilServiceImpl.getInstance();
 
@@ -23,14 +23,14 @@ public class BoardView {
 
         }
 
-        //확장된 for문
+        //foreach ex.
 //        for(BoardDto boDto : articles){
 //            System.out.println(boDto.getTitle()+" :\t"+
 //                    boDto.getContent()+" :\t"+
 //                    boDto.getWriter());
 //        }
 
-        //for문 대신 쓰는 스트림
+        //stream ex.
         articles.forEach(i->{
             System.out.println(i.toString());
         });

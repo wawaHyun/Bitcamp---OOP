@@ -7,4 +7,6 @@ public interface UtilService {
     String createRandomName();
     String createRandomContents();
     String createRandomTitles();
+    String createRandomMemberId();
+    String createRandomAccount();
 }

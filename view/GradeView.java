@@ -12,14 +12,14 @@ import serviceImpl.UtilServiceImpl;
 import java.util.Scanner;
 
 public class GradeView {
-    public static void main(String[] args) {
+    public static void grMain(Scanner sc) {
 
-        Scanner sc = new Scanner(System.in);
         UtilService util = UtilServiceImpl.getInstance();
         GradeService gradeS = GradeServiceImpl.getInstance();
 
+        System.out.println("Enter the student name.");
         MemberDto student = new MemberBuilder()
-                .name("jaja")
+                .name(sc.next())
                 .build();
 
         SubjectDto sb = new SubjectBuilder()
@@ -31,15 +31,15 @@ public class GradeView {
         int totalscore = gradeS.getTotalScore(sb);
         double totalavg = gradeS.findAverage(totalscore);
 
-        //입력값
+        //dummy enter
         //80 50 90
 
-        System.out.println("다음은 한 학생의 과목 점수이다.");
-        System.out.println(" ============= 성적표 ==============");
-        System.out.printf("이름 : %s\n국어점수 : %s\n영어점수 : %s\n수학점수 : %s\n"
+        System.out.println("This is one student's subject score.");
+        System.out.println(" ============= subject score ==============");
+        System.out.printf("name : %s\nkorean score : %s\nEnglish score : %s\nMath score : %s\n"
                 ,String.valueOf(student.getName()),String.valueOf(sb.getKorean()),
                 String.valueOf(sb.getEnglish()),String.valueOf(sb.getMath()));
-        System.out.printf("총 점수: %s\n평균 점수: %.4s\n",
+        System.out.printf("total score: %s\naverage score: %.4s\n",
                 String.valueOf(totalscore),String.valueOf(totalavg));
 
     }

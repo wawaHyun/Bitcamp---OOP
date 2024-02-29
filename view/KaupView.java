@@ -11,13 +11,12 @@ import java.lang.reflect.Member;
 import java.util.Scanner;
 
 public class KaupView {
-    public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
+    public static void kaupMain(Scanner sc) {
 
         UtilService Util = UtilServiceImpl.getInstance();
         KaupService kaupS = KaupServiceImpl.getInstance();
 
+        System.out.println("Enter the name to search kaup index.");
         MemberDto mb = new MemberBuilder()
                 .name(sc.next())
                 .height(Util.createRandomInteger(150,50))
@@ -27,8 +26,8 @@ public class KaupView {
         String bmi = kaupS.createBmi(mb);
         String bodymass = kaupS.createBodymass(bmi);
 
-        System.out.printf("이름 : %s\n신장 : %.2fcm\n체중 : %.2fkg\n" +
-                        "BMI지수는 : %s\n판단관결과 : %s\n",
+        System.out.printf("name : %s\nheight : %.2fcm\nweight : %.2fkg\n" +
+                        "BMI : %s\nresult : %s\n",
                 mb.getName(),mb.getHeight(),mb.getWeight(),bmi,bodymass);
 
 

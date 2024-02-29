@@ -1,58 +1,56 @@
 package view;
 
-//OOP의 상속예제
-//this와 super
 public class PhoneInheritance {
-    public static void main(String[] args) {
+    public static void main() {
         Phone pho = new Phone();
-        pho.setCall("제임스");
-        pho.setCompany("금성");
+        pho.setCall("James");
+        pho.setCompany("gumsung");
 
-        System.out.println("*********** 집  전화 *************");
+        System.out.println("*********** home call *************");
         System.out.println(pho);
-        System.out.println("*********** 휴대전화 *************");
+        System.out.println("*********** phone call *************");
 
         SellPhone cp = new SellPhone();
-        cp.setCompany("노키아");
+        cp.setCompany("Nokia");
         cp.setCall("Eric");
         cp.setPortale(true);
         System.out.println(cp);
 
-        System.out.println("*********** 아이폰 *************");
+        System.out.println("*********** i-phone *************");
         IPhone ip = new IPhone();
         ip.setCompany("apple");
         ip.setCall("Tom");
         ip.setPortale(true);
-        ip.setData("전송하다");
-        System.out.println(ip); //애플 아이폰으로 톰에게 데이터를 전송하다
+        ip.setData("to send");
+        System.out.println(ip);
 
 
         System.out.println("*********** 갤럭시 *************");
         Android andP = new Android();
         andP.setCompany("samsung");
-        andP.setCall("제인");
+        andP.setCall("jain");
         andP.setPortale(true);
-        andP.setData("전송하다");
-        andP.setPhoneSize("10인치");
-        System.out.println(andP); //삼성 갤럭시노트으로 10인치 톰에게 데이터를 전송하다
+        andP.setData("to send");
+        andP.setPhoneSize("10inch");
+        System.out.println(andP);
 
 
     }
 }
 
 class Android extends IPhone{
-    public static String BRAND="갤럭시노트";
+    public static String BRAND="Galaxy Note";
     private String phoneSize;
 
     @Override
     public String toString() {
         return "IPhone{\n" +
-                "제조사='" + company + '\'' +
-                ", 브랜드= " + BRAND + '\'' +
-                ", 수신자='" + call + '\'' +
-                ", 폰사이즈='" + phoneSize + '\'' +
-                ", 이동성portable=" + portale + '\'' +
-                ", 이동유무move='" + move + '\'' +
+                "maker='" + company + '\'' +
+                ", brand= " + BRAND + '\'' +
+                ", receiver='" + call + '\'' +
+                ", phonesize='" + phoneSize + '\'' +
+                ", portable=" + portale + '\'' +
+                ", move='" + move + '\'' +
                 ", data='" + data + '\'' +
                 "\n}";
     }
@@ -74,11 +72,11 @@ class IPhone extends SellPhone{
     @Override
     public String toString() {
         return "IPhone{\n" +
-                "제조사='" + super.company + '\'' +
-                ", 브랜드= " + BRAND + '\'' +
-                ", 수신자='" + super.call + '\'' +
-                ", 이동성portable=" + super.portale + '\'' +
-                ", 이동유무move='" + super.move + '\'' +
+                "maker='" + super.company + '\'' +
+                ", brand= " + BRAND + '\'' +
+                ", receiver='" + super.call + '\'' +
+                ", portable=" + super.portale + '\'' +
+                ", move='" + super.move + '\'' +
                 ", data='" + data + '\'' +
                 "\n}";
     }
@@ -94,16 +92,16 @@ class IPhone extends SellPhone{
 }
 
 class SellPhone extends Phone{
-    protected boolean portale; //휴대전화의 이동성
+    protected boolean portale;
     protected String move;
 
     @Override
     public String toString() {
         return "SellPhone{\n" +
-                "제조사='" + super.company + '\'' +
-                ", 수신자='" + super.call + '\'' +
-                ", 이동성portable=" + portale + '\'' +
-                ", 이동유무move='" + move + '\'' +
+                "maker='" + super.company + '\'' +
+                ", receiver='" + super.call + '\'' +
+                ", portable=" + portale + '\'' +
+                ", move='" + move + '\'' +
                 "\n}";
     }
 
@@ -116,9 +114,9 @@ class SellPhone extends Phone{
 
     public void setPortale(boolean portale) {
         if(portale){
-            this.setMove("phone을 휴대할수 있음");
+            this.setMove("you can portable phone");
         }else {
-            this.setMove("phone을 휴대할수 없음");
+            this.setMove("you can't portable phone");
         }
         this.portale = portale;
     }
@@ -134,17 +132,15 @@ class SellPhone extends Phone{
 
 
 
-class Phone{ //instance변수 = 멤버변수 => heap영역
+class Phone{
     protected String company, call;
-    static final double TAX_RATE = 0.0095; //static 변수 = 전역변수 => static영역
-    //fianl걸면 유일한, the one이 됌
-
+    static final double TAX_RATE = 0.0095;
 
     @Override
     public String toString() {
-        return "집전화Phone{\n" +
-                "제조사='" + company + '\'' +
-                ", 수신자='" + call + '\'' +
+        return "home call{\n" +
+                "maker='" + company + '\'' +
+                ", receiver='" + call + '\'' +
                 "\n}";
     }
 
@@ -153,7 +149,7 @@ class Phone{ //instance변수 = 멤버변수 => heap영역
     }
 
     public void setCompany(String company) {
-        this.company = company+"에서 제작하다";
+        this.company = "made in "+company;
     }
 
     public String getCall() {
@@ -161,6 +157,6 @@ class Phone{ //instance변수 = 멤버변수 => heap영역
     }
 
     public void setCall(String call) {
-        this.call = call+"에게 전화를 걸다";
+        this.call = "call the "+call;
     }
 }

@@ -4,16 +4,19 @@ import model.MemberDto;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public interface UserService {
-    String join(MemberDto user);
-    String login(MemberDto user);
-    MemberDto findUserById(String username);
-    void updatePassword(MemberDto user);
+    String join(Scanner sc);
+    String login(MemberDto memberParam);
+    String findUserById(String username);
+//    void updatePassword(Scanner sc);
+    String updatePassword(MemberDto user);
     String deleteUser(String username);
-    List<MemberDto> getUserList();
-    List<MemberDto> findUsersByName(String name);
-    List<MemberDto> findUsersByJob(String job);
-    int countUsers();
+    Map<String,MemberDto> getUserMap();
+    List<MemberDto> findUsersByName(MemberDto name);
+    String findUsersByJob(MemberDto userJob);
+    String countUsers();
+    String addUsers();
 
 }

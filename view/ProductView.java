@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductView {
-    public static void main(String[] args) {
+    public static void main() {
 
         List<ProductDto> prodList = new ArrayList<>();
         UtilService util = UtilServiceImpl.getInstance();

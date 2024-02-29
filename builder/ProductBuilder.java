@@ -3,6 +3,7 @@ package builder;
 import model.ProductDto;
 
 public class ProductBuilder {
+
     private int productNum;
     private String productName;
     private String company;
