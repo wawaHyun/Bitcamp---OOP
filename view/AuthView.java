@@ -1,11 +1,7 @@
 package view;
 
 import controller.AuthController;
-import controller.UserController;
-import model.MemberDto;
 
-import java.awt.dnd.Autoscroll;
-import java.util.List;
 import java.util.Scanner;
 
 public class AuthView {
@@ -15,35 +11,32 @@ public class AuthView {
         ctrl.addUsers();
 
         while (true){
-            System.out.println("0번 뒤로가기, 1번 회원가입, 2번 로그인, 3번 아이디검색, " +
-                    "4번 비번변경, 5번 탈퇴, 6번 회원목록, 7번 이름검색, 8번 직업검색, 9번 회원수");
+            System.out.println("0-back main menu, 1-join, 2-login, 3-ID search, " +
+                    "4-PW update, 5-member Withdrawal, 6-member list, 7-NL name search, " +
+                    "8-job search, 9-member total of number");
+
             switch (sc.next()){
                 case "0":
-                    System.out.println("뒤로가기"); return;
+                    return;
                 case "1" :
-                    System.out.println("회원가입");
                     ctrl.join(sc);
                     break;
                 case "2" :
-                    System.out.println("로그인");
                     ctrl.login(sc);
                     break;
                 case "3" :
-                    System.out.println("아이디검색");break;
-//                    ctrl.findUser("jaja");
+                    break;
                 case "4" :
-                    System.out.println("비번변경");break;
+                   break;
                 case "5" :
-                    System.out.println("탈퇴");break;
+                    break;
                 case "6" :
-                    System.out.println("회원목록");
                     ctrl.getUsersMap(); break;
                 case "7":
-                    System.out.println("이름검색");break;
+                    break;
                 case "8" :
-                    System.out.println("직업검색");break;
+                    break;
                 case "9" :
-                    System.out.println("회원수");
                     System.out.println(ctrl.count()); break;
             }
         }

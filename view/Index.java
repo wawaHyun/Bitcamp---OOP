@@ -8,9 +8,9 @@ public class Index extends JFrame{
 
     Index(){
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("홈페이지");
+        setTitle("homepage");
         this.setLayout(new GridLayout(3,3,10,10));
-        JButton btn1 = new JButton("회원가입");
+        JButton btn1 = new JButton("join");
         btn1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -23,7 +23,7 @@ public class Index extends JFrame{
         setVisible(true);
 
 
-        JButton accountBtn = new JButton("통장생성");
+        JButton accountBtn = new JButton("create account");
         btn1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -36,7 +36,7 @@ public class Index extends JFrame{
         setVisible(true);
 
 
-        JButton listViewBtn = new JButton("목록보기");
+        JButton listViewBtn = new JButton("list");
         btn1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -51,7 +51,7 @@ public class Index extends JFrame{
 
     }
 
-    public static void main(String[] args) {
+    public static void main() {
         new Index();
     }
 }

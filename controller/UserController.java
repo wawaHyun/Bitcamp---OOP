@@ -1,19 +1,13 @@
 package controller;
-
-import builder.MemberBuilder;
-import model.MemberDto;
-import service.AuthService;
+import model.Member;
 import service.UserService;
-import serviceImpl.AuthServiceImpl;
 import serviceImpl.UserServiceImpl;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 public class UserController {
-    //    private Map<String, MemberDto> users;
     UserService auth;
 
     public UserController() {
@@ -25,8 +19,8 @@ public class UserController {
     }
 
     public String login(Scanner sc) {
-        System.out.println("아이디와 비번을 입력하세요.");
-        return auth.login(new MemberBuilder()
+        System.out.println("Please enter your ID & PW.");
+        return auth.login(Member.builder()
                 .memberId(sc.next())
                 .memberPw(sc.next())
                 .build());
@@ -38,20 +32,20 @@ public class UserController {
     }
 
     public String findUsersByJob(Scanner sc) {
-        System.out.println("검색할 직업을 입력하세요");
-        return auth.findUsersByJob(new MemberBuilder()
+        System.out.println("Please enter the job you wish to search for.");
+        return auth.findUsersByJob(Member.builder()
                 .job(sc.next())
                 .build());
     }
 
-    public List<MemberDto> findUsersByName(Scanner sc) {
-        System.out.println("검색할 이름을 입력하세요.");
-        return auth.findUsersByName(new MemberBuilder()
+    public List<Member> findUsersByName(Scanner sc) {
+        System.out.println("Please enter the name you wish to search for.");
+        return auth.findUsersByName(Member.builder()
                 .name(sc.next())
                 .build());
     }
 
-    public Map<String, MemberDto> getUserMap() {
+    public Map<String, Member> getUserMap() {
         return auth.getUserMap();
     }
 
@@ -64,8 +58,8 @@ public class UserController {
     }
 
     public String  updatePassword(Scanner sc) {
-        System.out.println("아이디와 비번을 입력하세요");
-        return auth.updatePassword(new MemberBuilder()
+        System.out.println("Please enter your ID & PW.");
+        return auth.updatePassword(Member.builder()
                 .memberId(sc.next())
                 .memberPw(sc.next())
                 .build());

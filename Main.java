@@ -5,35 +5,40 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        System.out.println("0-system exit, 1-grade, 2-board, " +
+                "3-kaup, 4-phone heritance test, 5-product," +
+                "6-index,7-AuthView, 8-UserView, 9-bank program");
         while (true){
-            System.out.println("0-종료, 1-회원관리, 2-성적표, 3-게시판, " +
-                    "4-kaup, 5-AuthView, 6-UserView");
             switch (sc.next()){
                 case "0" :
-                    System.out.println("종료되었습니다.");
                     return;
                 case "1" :
-                System.out.println("회원가입을 시작합니다.");
-                    AuthView.authMain(sc);
-                    break;
-                case "2" :
-                    System.out.println("성적표를 조회합니다.");
                     GradeView.grMain(sc);
                     break;
-                case "3" :
-                    System.out.println("게시판 인입");
+                case "2" :
                     BoardView.boMain();
                     break;
-                case "4" :
-                    System.out.println("kaup지수 계산 go");
+                case "3" :
                     KaupView.kaupMain(sc);
                     break;
+                case "4" :
+                    PhoneInheritance.main();
+                    break;
                 case "5" :
-                    System.out.println("AuthView로 가서 마이페이지");
-                    AuthView.authMain(sc);
+                ProductView.main();
+                    break;
                 case "6" :
-                    System.out.println("UserView로 가서 마이페이지");
-                    UserView.userMain(sc);
+                    Index.main();
+                    break;
+                case "7" :
+                AuthView.authMain(sc);
+                    break;
+                case "8" :
+                UserView.userMain(sc);
+                    break;
+                case "9" :
+                AccountView.accountMain(sc);
+                    break;
             }
         }
 

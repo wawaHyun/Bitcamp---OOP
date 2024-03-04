@@ -65,6 +65,15 @@ public class UtilServiceImpl implements UtilService {
         return memberId;
     }
 
+    @Override
+    public String createRandomAccount() {
+        String randomAccount= "";
+        for(int i=0;i<7;i++){
+            randomAccount += String.valueOf(createRandomInteger(0,9));
+        }
+        return randomAccount;
+    }
+
 
     @Override
     public String createRandomContents() {
