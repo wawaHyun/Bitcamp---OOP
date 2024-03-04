@@ -1,10 +1,7 @@
 package serviceImpl;
 
-import model.SubjectDto;
+import model.Subject;
 import service.GradeService;
-import service.UtilService;
-
-import java.text.DecimalFormat;
 
 public class GradeServiceImpl implements GradeService {
     private static GradeService instance = new GradeServiceImpl();
@@ -17,7 +14,7 @@ public class GradeServiceImpl implements GradeService {
 
 
     @Override
-    public int getTotalScore(SubjectDto subDto) {
+    public int getTotalScore(Subject subDto) {
         int total = subDto.getKorean()+subDto.getEnglish()+subDto.getMath();
         return total;
     }

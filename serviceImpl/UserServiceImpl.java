@@ -1,18 +1,14 @@
 package serviceImpl;
 
-import builder.MemberBuilder;
-import controller.UserController;
-import model.MemberDto;
-import service.KaupService;
+import model.Member;
 import service.UserService;
 import service.UtilService;
 
-import java.sql.SQLOutput;
 import java.util.*;
 
 public class UserServiceImpl implements UserService {
     private static UserService instance = new UserServiceImpl();
-    Map<String, MemberDto> users;
+    Map<String, Member> users;
     private UserServiceImpl() {
     }
 
@@ -24,12 +20,12 @@ public class UserServiceImpl implements UserService {
     //-----------------------------------singleton
     @Override
     public String addUsers() {
-        Map<String, MemberDto> map = new HashMap<>();
+        Map<String, Member> map = new HashMap<>();
         UtilService util = UtilServiceImpl.getInstance();
 
         for (int i = 0; i < 5; i++) {
             String memberId = UtilServiceImpl.getInstance().createRandomMemberId();
-            map.put(memberId, new MemberBuilder()
+            map.put(memberId, Member.builder()
                     .memberId(memberId)
                     .memberPw("1111")
                     .name(util.createRandomName())
@@ -49,7 +45,7 @@ public class UserServiceImpl implements UserService {
 
         String keyId = sc.next();
 
-        users.put(keyId, new MemberBuilder()
+        users.put(keyId, Member.builder()
                 .memberId(keyId)
                 .memberPw(sc.next())
                 .name(sc.next())
@@ -65,9 +61,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String login(MemberDto memberParam) {
+    public String login(Member memberParam) {
         String result = "";
-        MemberDto userIdMap = users.get(memberParam.getMemberId());
+        Member userIdMap = users.get(memberParam.getMemberId());
 
         if(userIdMap==null){
             result = "404 Not Found : ID ID not found.";
@@ -95,9 +91,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String updatePassword(MemberDto user) {
+    public String updatePassword(Member user) {
         String result ="";
-        MemberDto userInMap = users.get(user.getMemberId());
+        Member userInMap = users.get(user.getMemberId());
         if(userInMap != null){
             userInMap.setMemberPw(user.getMemberPw());
             result = "Password change complete";
@@ -120,13 +116,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Map<String, MemberDto> getUserMap() {
+    public Map<String, Member> getUserMap() {
         users.forEach((k, v) -> System.out.println("{{key : " + k + ", vleue : " + v + "}}"));
         return users;
     }
 
     @Override
-    public List<MemberDto> findUsersByName(MemberDto name) {
+    public List<Member> findUsersByName(Member name) {
 
 //        List<MemberDto> list = new ArrayList<>();
 //        for(String key : users.keySet()){
@@ -145,12 +141,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String findUsersByJob(MemberDto userJob) {
+    public String findUsersByJob(Member userJob) {
         String result = "";
         int round = 0;
 
         for(String findKey : users.keySet()){
-        MemberDto findJob = users.get(findKey);
+        Member findJob = users.get(findKey);
             if (findJob.getJob().equals(userJob.getJob())){
                 round+=1;
             }else{}

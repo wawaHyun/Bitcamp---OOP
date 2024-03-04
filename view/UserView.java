@@ -1,10 +1,7 @@
 package view;
 
 import controller.UserController;
-import model.MemberDto;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class UserView {

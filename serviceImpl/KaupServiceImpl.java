@@ -1,19 +1,27 @@
 package serviceImpl;
 
-import model.MemberDto;
+import model.Member;
 import service.KaupService;
-import service.UtilService;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class KaupServiceImpl implements KaupService {
     private static KaupService instance = new KaupServiceImpl();
-    private KaupServiceImpl(){}
+    Map<?, ?> kaupMap;
+    List<?> kaupList;
+    private KaupServiceImpl(){
+        this.kaupMap = new HashMap<>();
+        this.kaupList = new ArrayList<>();
+    }
 
     public static KaupService getInstance(){ return instance;}
 
     @Override
-    public String createBmi(MemberDto mmb) {
+    public String createBmi(Member mmb) {
         double height =mmb.getHeight();
         double weight = mmb.getWeight();
 

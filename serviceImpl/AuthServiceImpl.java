@@ -1,21 +1,18 @@
 package serviceImpl;
 
-import builder.MemberBuilder;
-import model.MemberDto;
+import model.Member;
 import service.AuthService;
-import service.GradeService;
 import service.UtilService;
 
-import java.sql.SQLOutput;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class AuthServiceImpl implements AuthService {
     private static AuthService instance = new AuthServiceImpl();
-    Map<String, MemberDto> users;
+    Map<?,?> users;
+    List<?> uersList;
     private AuthServiceImpl() {
         this.users = new HashMap<>();
+        this.uersList = new ArrayList<>();
     }
     public static AuthService getInstance() {
         return instance;
@@ -32,9 +29,9 @@ public class AuthServiceImpl implements AuthService {
         System.out.println("jaja 998 jainname 00531 010555 adressUU OLdesu 180 70");
 
 
-        Map<String, MemberDto> map = new HashMap<>();
+        Map<String, Member> map = new HashMap<>();
         String keyId = sc.next();
-        map.put(keyId,new MemberBuilder()
+        map.put(keyId,Member.builder()
                 .memberId(keyId)
                 .memberPw(sc.next())
                 .name(sc.next())
@@ -53,12 +50,12 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public String login(Scanner sc) {
-        Map<String, MemberDto> map = new HashMap<>();
+        Map<?, ?> map = new HashMap<>();
         String loginSc = sc.next();
         map = users;
 
-        for(Map.Entry<String,MemberDto> entry :map.entrySet()){
-            String key = entry.getKey();
+        for(Map.Entry<?,?> entry :map.entrySet()){
+            String key = String.valueOf(entry.getKey());
             if(loginSc != key){
                 System.out.println("key "+key+", loginSc "+loginSc);
                 System.out.println("login success");
@@ -73,12 +70,12 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public String addUsers() {
-        Map<String, MemberDto> map = new HashMap<>();
+        Map<String, Member> map = new HashMap<>();
         UtilService util = UtilServiceImpl.getInstance();
 
         for(int i=0;i<5;i++) {
             String memberId = UtilServiceImpl.getInstance().createRandomMemberId();
-            map.put(memberId+"  ", new MemberBuilder()
+            map.put(memberId, Member.builder()
                     .memberId(memberId)
                     .memberPw("1111")
                     .name(util.createRandomName())
@@ -89,8 +86,8 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public MemberDto findUser(String username) {
-        MemberDto member = new MemberBuilder()
+    public Member findUser(String username) {
+        Member member = Member.builder()
                 .memberId(username)
                 .build();
 
@@ -109,7 +106,7 @@ public class AuthServiceImpl implements AuthService {
 //        });
 
         //map Hash
-        Map<String, MemberDto> map = new HashMap<>();
+        Map<?, ?> map = new HashMap<>();
         map = users;
 
         //for test
@@ -122,7 +119,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public Map<String, MemberDto> getUsersMap() {
+    public Map<?,?> getUsersMap() {
         users.forEach((k,v)-> System.out.println("{{key : "+k+", vleue : "+v+"}}"));
         System.out.println(" ");
 //        System.out.println(users);

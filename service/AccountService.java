@@ -1,16 +1,16 @@
 package service;
 
-import model.AccountDto;
+import model.Account;
+import model.Member;
 
-import java.time.LocalDate;
 import java.util.*;
 
 public interface AccountService {
-    String createAccount(AccountDto accountInfor);
-    String deposit(AccountDto accountInfor);
-    String withdraw(AccountDto accountInfor);
-    String getBalance(AccountDto accountInfor);
-    String cancelAccount(AccountDto accountInfor);
-    List<AccountDto> getAccount();
+    String createAccount(Account accountInfor);
+    String deposit(Account accountInfor);
+    String withdraw(Account accountInfor);
+    String getBalance(Account accountInfor);
+    String cancelAccount(Account accountInfor);
+    List<Account> getAccount();
 
 }

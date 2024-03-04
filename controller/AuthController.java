@@ -1,12 +1,9 @@
 package controller;
 
-import builder.MemberBuilder;
-import model.MemberDto;
+import model.Member;
 import service.AuthService;
 import serviceImpl.AuthServiceImpl;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -30,11 +27,11 @@ public class AuthController {
         return "";
     }
 
-    public MemberDto findUser(String username) {
+    public Member findUser(String username) {
         return auth.findUser(username);
     }
 
-    public Map<String, MemberDto> getUsersMap() {
+    public Map<?, ?> getUsersMap() {
         auth.getUsersMap();
         return null;
     }

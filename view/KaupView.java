@@ -1,13 +1,11 @@
 package view;
 
-import builder.MemberBuilder;
-import model.MemberDto;
+import model.Member;
 import service.KaupService;
 import service.UtilService;
 import serviceImpl.KaupServiceImpl;
 import serviceImpl.UtilServiceImpl;
 
-import java.lang.reflect.Member;
 import java.util.Scanner;
 
 public class KaupView {
@@ -17,7 +15,7 @@ public class KaupView {
         KaupService kaupS = KaupServiceImpl.getInstance();
 
         System.out.println("Enter the name to search kaup index.");
-        MemberDto mb = new MemberBuilder()
+        Member mb = Member.builder()
                 .name(sc.next())
                 .height(Util.createRandomInteger(150,50))
                 .weight(Util.createRandomInteger(30,69))

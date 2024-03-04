@@ -1,11 +1,7 @@
 package view;
 
 import controller.AuthController;
-import controller.UserController;
-import model.MemberDto;
 
-import java.awt.dnd.Autoscroll;
-import java.util.List;
 import java.util.Scanner;
 
 public class AuthView {
