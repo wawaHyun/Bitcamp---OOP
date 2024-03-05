@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 package view;
 
 import model.Member;
@@ -32,38 +32,3 @@ public class KaupView {
 
     }
 }
-=======
-package view;
-
-import model.Member;
-import service.KaupService;
-import service.UtilService;
-import serviceImpl.KaupServiceImpl;
-import serviceImpl.UtilServiceImpl;
-
-import java.util.Scanner;
-
-public class KaupView {
-    public static void kaupMain(Scanner sc) {
-
-        UtilService Util = UtilServiceImpl.getInstance();
-        KaupService kaupS = KaupServiceImpl.getInstance();
-
-        System.out.println("Enter the name to search kaup index.");
-        Member mb = Member.builder()
-                .name(sc.next())
-                .height(Util.createRandomInteger(150,50))
-                .weight(Util.createRandomInteger(30,69))
-                .build();
-
-        String bmi = kaupS.createBmi(mb);
-        String bodymass = kaupS.createBodymass(bmi);
-
-        System.out.printf("name : %s\nheight : %.2fcm\nweight : %.2fkg\n" +
-                        "BMI : %s\nresult : %s\n",
-                mb.getName(),mb.getHeight(),mb.getWeight(),bmi,bodymass);
-
-
-    }
-}
->>>>>>> 504fa6313cba374b40307599a88c30eca5b3cde7
