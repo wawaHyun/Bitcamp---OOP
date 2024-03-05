@@ -1,7 +1,7 @@
 
 package util;
 
-import java.util.*;
+import java.util.ArrayList;
 
 public class Inventory<T> {
     private ArrayList<T> inventoryList;
