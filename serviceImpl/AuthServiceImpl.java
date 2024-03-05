@@ -29,7 +29,6 @@ public class AuthServiceImpl implements AuthService {
         System.out.println("ID, PW, name, socialNum, phoneNum, address, job, height, weight");
         System.out.println("jaja 998 jainname 00531 010555 adressUU OLdesu 180 70");
 
-
         Map<String, Member> map = new HashMap<>();
         String keyId = sc.next();
         map.put(keyId,Member.builder()
@@ -51,15 +50,15 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public String login(Scanner sc) {
-        Map<?, ?> map = new HashMap<>();
+        Map<?, ?> map;
         String loginSc = sc.next();
         map = users;
 
         for(Map.Entry<?,?> entry :map.entrySet()){
             String key = String.valueOf(entry.getKey());
-            if(loginSc != key){
+            if(loginSc.equals(key)){
                 System.out.println("key "+key+", loginSc "+loginSc);
-                System.out.println("login success");
+                System.out.println("login success!");
             }else{
                 System.out.println("key "+key+", loginSc "+loginSc);
                 System.out.println("login fail");
@@ -99,7 +98,7 @@ public class AuthServiceImpl implements AuthService {
 //        }
 
 
-        //ramda test
+        //lambda test
 //        users.forEach((k,v)-  >{
 //            if(users.get(k)=username){
 //                System.out.println("아이디 "+username+"가 있습니다.");
