@@ -53,6 +53,7 @@ public class Index extends JFrame{
     }
 
     public static void main() {
+        System.out.println("welcome and exit index!");
         new Index();
     }
 }
