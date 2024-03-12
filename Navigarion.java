@@ -93,7 +93,7 @@ public enum Navigarion {
     EXIT("exit", i -> {
         System.out.println("Wrong input");
         return false;
-    })
+    }),
     ;
 
     private final String name;
